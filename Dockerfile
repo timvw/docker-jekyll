@@ -8,10 +8,12 @@ RUN apt-get update \
   && gem update --system \
   && mkdir /opt/website \
   && printf "source 'https://rubygems.org'\ngem 'github-pages', group: :jekyll_plugins" > /opt/website/Gemfile \
-  && bundle config --global silence_root_warning 1 \
-  && bundle install
+  && bundle config --global silence_root_warning 1
+#  && bundle install
 
 WORKDIR /opt/website
+
+RUN bundle install
 
 EXPOSE 4000
 
