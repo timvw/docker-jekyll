@@ -6,10 +6,10 @@ RUN apt-get update \
   && apt-get clean \
   && gem install bundler \
   && gem update --system \
+  && mkdir /opt/website \
   && printf "source 'https://rubygems.org'\ngem 'github-pages', group: :jekyll_plugins" > /opt/website/Gemfile \
   && bundle config --global silence_root_warning 1 \
-  && bundle install \
-  && mkdir /opt/website
+  && bundle install
 
 WORKDIR /opt/website
 
